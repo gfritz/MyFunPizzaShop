@@ -1,0 +1,15 @@
+{
+  "name": "myfunpizzashop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npm run start --workspace=src/Client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "latest"
+  }
+}

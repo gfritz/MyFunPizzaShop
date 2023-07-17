@@ -7,6 +7,7 @@
     <Compile Include="Views\Common.fs" />
     <Compile Include="Views\Index.fs" />
     <Compile Include="Views\Layout.fs" />
+    <Compile Include="Handlers\Default.fs" />
     <Compile Include="Throttling.fs" />
     <Compile Include="Serilog.fs" />
     <Compile Include="Http.fs" />

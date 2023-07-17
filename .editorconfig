@@ -1,5 +1,6 @@
 [*]
 trim_trailing_whitespace = true
+insert_final_newline = true
 
 [*.fs]
 fsharp_multiline_bracket_style = stroustrup

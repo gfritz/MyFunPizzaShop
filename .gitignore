@@ -19,6 +19,7 @@ src/Client/Client.csproj
 src/MVU/MVU.csproj
 src/Server/WebRoot/input-form.css
 src/Server/WebRoot/login.css
+# Fable generates csproj from fsproj for some (internal) reason
 src/Domain/Domain.csproj
 src/Server/WebRoot/bfb-input-form.css
 src/Server/WebRoot/open-props.css

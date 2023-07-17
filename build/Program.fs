@@ -1,4 +1,10 @@
-﻿open Fake.Core
+﻿// this should be quite portable to other projects!
+//// why use fake? isn't it controversial?
+// fake allows you to build a dependency graph, it can find portions of your graph
+// that don't depend on eachother so it can run them in parallel. this is super valuable
+// in a CI/CD environment. It is hard for you to script and maintain that. Parallel run
+// can save a lot of time. This graphic helps show the "graph" mentioned earlier https://v5.fake.build/pics/parallel/ParallelExample.png.
+open Fake.Core
 open Fake.Core
 open Fake.DotNet
 open Fake.IO

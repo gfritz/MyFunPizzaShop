@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Views\Common.fs" />
+    <Compile Include="Views\Layout.fs" />
     <Compile Include="Throttling.fs" />
     <Compile Include="Serilog.fs" />
     <Compile Include="Http.fs" />

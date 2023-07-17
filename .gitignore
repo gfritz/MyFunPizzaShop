@@ -36,3 +36,6 @@ logs/
 Test.db
 
 .fake
+
+packages/
+paket-files/

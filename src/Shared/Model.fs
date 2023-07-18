@@ -25,6 +25,7 @@ type Predicate =
     | Or of Predicate * Predicate
     | Not of Predicate
 
+// we use this for conflict detection of resource edits
 type Version =
     | Version of int64
     member this.Value: int64 = let (Version v) = this in v

@@ -2,9 +2,11 @@
   "name": "myfunpizzashop",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "workspaces": [
+    "src/Client"
+  ],
   "scripts": {
-    "watch": "npm run start --workspace=src/Client"
+     "watch": "npm run start --workspace=src/Client"
   },
   "keywords": [],
   "author": "",

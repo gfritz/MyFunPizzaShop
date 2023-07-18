@@ -157,7 +157,7 @@ let main args =
 
     let mutable ret = 0
 
-    let appEnv = obj()
+    let appEnv = new Environments.AppEnv(config)
 
     try
         try

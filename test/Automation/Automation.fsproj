@@ -4,8 +4,12 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Setup.fs" />
     <Compile Include="Program.fs" />
     <EmbeddedResource Include="../../features/PizzaMenu.feature" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Server\Server.fsproj" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

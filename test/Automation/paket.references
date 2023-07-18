@@ -1,0 +1,12 @@
+FSharp.Core
+
+# https://github.com/fsprojects/tickspec
+# tool generates ilcode at runtime
+# and
+TickSpec
+
+# MS hired lots of people who made Puppeteer
+# and this is cross-platform browser
+# and it supports a lot of languages
+# https://playwright.dev - primarily node, has .net wrapper
+Microsoft.Playwright

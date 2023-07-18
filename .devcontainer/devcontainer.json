@@ -36,7 +36,7 @@
  //      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
  //
  //    * If only using Remote - Containers with a local container, uncomment this line instead:
-	"mounts": [ 
+	"mounts": [
 		// uncomment the next line for cert
 		// "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind",
 		// "source=${env:HOME}${env:USERPROFILE}/.microsoft/usersecrets,target=/root/.microsoft/usersecrets,type=bind",
@@ -45,7 +45,7 @@
 
 	"customizations": {
 		// Configure properties specific to VS Code.
-		"vscode": {	
+		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-dotnettools.csharp",
@@ -56,7 +56,8 @@
 				"bierner.lit-html",
 				"ionide.ionide-paket",
 				"ionide.ionide-fake",
-				"BRBoer.vsc-conceal",
+				// this adds some font ligatures that even confuse me! and I like seeing symbols!
+				// "BRBoer.vsc-conceal",
 				"fernandoescolar.vscode-solution-explorer"
 			]
 		}

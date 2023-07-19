@@ -89,7 +89,9 @@ let view (host:LitElement) (model:Model) dispatch =
 
 [<LitElement("fps-side-bar")>]
 let LitElement () =
+#if DEBUG
     Hook.useHmr (hmr)
+#endif
     let host, _ = LitElement.init (fun config ->
 
         config.useShadowDom <- false

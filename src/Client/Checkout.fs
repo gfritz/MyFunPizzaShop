@@ -55,6 +55,8 @@ let rec execute (host: LitElement) order (dispatch: Msg -> unit) =
         host.dispatchCustomEvent (Constants.Events.RequestLogin, null,true,true,true)
 
     | Order.SubscribeToLogin ->
+        // if you just/only dispatch DOM event, then newcomers won't be aware of it.
+        // relying on LoginStore instead resovles that issue.
         (LoginStore.store.Subscribe (fun (model:LoginStore.Model) -> dispatch (SetLoginStatus model.UserId))  )
         |> ignore
 

@@ -4,8 +4,10 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LoginStore.fs" />
     <Compile Include="PizzaItem.fs" />
     <Compile Include="PizzaMenu.fs" />
+    <Compile Include="Checkout.fs" />
     <Compile Include="Sidebar.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>

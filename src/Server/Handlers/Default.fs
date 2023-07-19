@@ -16,6 +16,7 @@ let webApp (env: #_) (layout: HttpContext -> (int -> Task<string>) -> string Tas
     let defaultRoute = viewRoute (Index.view env)
 
     choose [
+        routeCi "/checkout" >=> defaultRoute
         routeCi "/" >=> defaultRoute
     ]
 

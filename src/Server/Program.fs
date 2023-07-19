@@ -60,7 +60,6 @@ let configureApp (app: IApplicationBuilder, appEnv) =
     let env = app.ApplicationServices.GetService<IWebHostEnvironment>()
     let isDevelopment = env.IsDevelopment()
 
-
     let app = if isDevelopment then app else app.UseResponseCompression()
 
     app
@@ -88,13 +87,13 @@ let configureApp (app: IApplicationBuilder, appEnv) =
         .UseGiraffe(handler)
 
     if env.IsDevelopment() then
-        // TODO: lazily commenting until we actually want UseSpa
-        // app.UseSpa(fun spa ->
-        //     let path = System.IO.Path.Combine(__SOURCE_DIRECTORY__, "../../.")
-        //     printfn $"UseSpa SourcePath {path}"
-        //     spa.Options.SourcePath <- path
-        //     spa.Options.DevServerPort <- 5173
-        //     spa.UseReactDevelopmentServer(npmScript = "watch"))
+        // TODO: subsequent dotnet run fails to bind this port
+        app.UseSpa(fun spa ->
+            let path = System.IO.Path.Combine(__SOURCE_DIRECTORY__, "../../.")
+            printfn $"UseSpa SourcePath {path}"
+            spa.Options.SourcePath <- path
+            spa.Options.DevServerPort <- 5173
+            spa.UseReactDevelopmentServer(npmScript = "watch"))
 
         app.UseSerilogRequestLogging() |> ignore
 
@@ -120,8 +119,10 @@ let configureServices (services: IServiceCollection) =
 let configureLogging (builder: ILoggingBuilder) =
     builder.AddConsole().AddDebug() |> ignore
 
-// host is setup in 2 steps because we have automation tests.
-// also standard asp.net core setup; no f# specifics here
+// host is setup in 2 steps because we have automation tests,
+// and for automation tests, we want to reuse the host, with automation test appEnv.
+// this is standard asp.net core setup; no f# specifics here except perhaps the `appEnv`
+// but c# could do that with an object that implements ALL of the constraints.
 let host appEnv args =
     let contentRoot = Directory.GetCurrentDirectory()
     let webRoot = Path.Combine(contentRoot, "WebRoot")
@@ -159,8 +160,10 @@ let main args =
 
     let mutable ret = 0
 
+    // Server specific appEnv
     let appEnv = new Environments.AppEnv(config)
 
+    // f# doesn't have an all-in-one try-catch-finally syntax
     try
         try
             (host appEnv args).Run()

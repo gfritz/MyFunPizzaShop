@@ -4,7 +4,6 @@ module rec FunPizzaShop.Shared.Model
 open System
 open Fable.Validation
 open FsToolkit.ErrorHandling
-open Thoth.Json
 
 // there are cases where we are CERTAIN that the Result is in Ok state
 let inline forceValidate (e) =

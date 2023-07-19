@@ -25,6 +25,12 @@
       "commands": [
         "telplin"
       ]
+    },
+    "fable": {
+      "version": "4.1.4",
+      "commands": [
+        "fable"
+      ]
     }
   }
 }

@@ -4,3 +4,6 @@ insert_final_newline = true
 
 [*.fs]
 fsharp_multiline_bracket_style = stroustrup
+
+[*.js]
+indent_size = 2

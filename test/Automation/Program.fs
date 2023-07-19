@@ -23,4 +23,4 @@ let main _ =
             -1
     finally
         ()
-        // host.StopAsync().Wait()
+        Setup.host.StopAsync().Wait()

@@ -59,14 +59,15 @@ let LitElement () =
         config.useShadowDom <- false
         config.props <-
         {|
-            // puts our PizzaSpecial into "special" html attribute according to our `split` function.
+            // puts our PizzaSpecial into "special" html attribute <my-html-element special="deserialized-json-for-element />"
+            // according to our `split` function.
             // we send the html for search engines/etc - certainly to see spans, headings, etc - maybe our encoded data won't make any impression.
             // we send the encoded data for the web-component element to populate itself.
             special = Prop.Of( Option.None , attribute="special", fromAttribute = split)
         |}
     )
 
-    // WithOrder -
+    // WithOrder - mkHiddenProgramWithOrderExecute is how we adapt our `Order` concept into Elmish Cmd
     let program =
         Program.mkHiddenProgramWithOrderExecute
             (init (prop.special.Value.Value)) (update) (execute host)

@@ -86,13 +86,16 @@ let configureApp (app: IApplicationBuilder, appEnv) =
         .UseWebSockets()
         .UseGiraffe(handler)
 
+    // thru dev, vite serves files
+    // otherwise, fable compiles to dist and we host those in our server of choice
     if env.IsDevelopment() then
         // TODO: subsequent dotnet run fails to bind this port
         app.UseSpa(fun spa ->
-            let path = System.IO.Path.Combine(__SOURCE_DIRECTORY__, "../../.")
+            let path = System.IO.Path.Combine(__SOURCE_DIRECTORY__, "../../")
             printfn $"UseSpa SourcePath {path}"
             spa.Options.SourcePath <- path
-            spa.Options.DevServerPort <- 5173
+            spa.Options.DevServerPort <- 5183
+            // runs "watch" script from package.json in SourcePath
             spa.UseReactDevelopmentServer(npmScript = "watch"))
 
         app.UseSerilogRequestLogging() |> ignore

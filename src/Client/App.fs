@@ -8,4 +8,7 @@ open Elmish.UrlParser
 open Elmish.Navigation
 
 // make sure PizzaItem doesn't get kicked out by tree shaking
+// how to tell? in the browser devtools, if you don't see in
+// localhost:5010/dist/ a corresponding Thing.js,
 PizzaItem.register()
+PizzaMenu.register()

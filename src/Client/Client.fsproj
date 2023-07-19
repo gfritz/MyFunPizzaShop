@@ -4,6 +4,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Navigation.fs" />
+    <Compile Include="Sidebar.fs" />
     <Compile Include="ElmishOrder.fs" />
     <Compile Include="PizzaItem.fs" />
     <Compile Include="App.fs" />

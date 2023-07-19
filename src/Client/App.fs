@@ -12,3 +12,4 @@ open Elmish.Navigation
 // localhost:5010/dist/ a corresponding Thing.js,
 PizzaItem.register()
 PizzaMenu.register()
+Sidebar.register()

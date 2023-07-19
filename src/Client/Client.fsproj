@@ -5,9 +5,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Navigation.fs" />
-    <Compile Include="Sidebar.fs" />
     <Compile Include="ElmishOrder.fs" />
+    <Compile Include="Sidebar.fs" />
     <Compile Include="PizzaItem.fs" />
+    <Compile Include="PizzaMenu.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

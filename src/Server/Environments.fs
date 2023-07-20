@@ -7,11 +7,15 @@ open Microsoft.Extensions.Configuration
 open FunPizzaShop.ServerInterfaces.Query
 open FunPizzaShop.Shared.Model.Pizza
 open FunPizzaShop.Shared.Model
+open FunPizzaShop.ServerInterfaces.Command
+open FunPizzaShop.Shared.Command.Authentication
 
 // pros: less runtime magic compared to DI container
 // cons: becomes a god object, but it's the composition root, so it kinda has to be
 [<ExcludeFromCodeCoverageAttribute>]
-type AppEnv(config: IConfiguration) =
+type AppEnv(config: IConfiguration) as self =
+    let mutable commandApi =
+        lazy(FunPizzaShop.Command.API.api self NodaTime.SystemClock.Instance)
 
     interface IConfiguration with
         member _.Item
@@ -20,6 +24,20 @@ type AppEnv(config: IConfiguration) =
         member _.GetChildren() = config.GetChildren()
         member _.GetReloadToken() = config.GetReloadToken()
         member _.GetSection key = config.GetSection(key)
+
+
+    interface IAuthentication with
+        member _.Login: Login =
+            commandApi.Value.Login
+
+        member _.Logout: Logout =
+            fun () ->
+                async {
+                    return  Ok()
+                }
+        member _.Verify: Verify =
+            commandApi.Value.Verify
+
 
     interface IQuery with
         member this.Query<'t>(filter: Shared.Model.Predicate option, orderby: string option, orderbydesc: string option, thenby: string option, thenbydesc: string option, take: int option, skip: int option): Async<'t list> =

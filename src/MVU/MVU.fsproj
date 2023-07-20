@@ -5,7 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="LoginStore.fs" />
-    <Compile Include="Signin.fs" />
+    <Compile Include="SignIn.fs" />
     <Compile Include="PizzaItem.fs" />
     <Compile Include="PizzaMenu.fs" />
     <Compile Include="Checkout.fs" />

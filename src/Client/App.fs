@@ -15,6 +15,7 @@ PizzaItem.register()
 PizzaMenu.register()
 Sidebar.register()
 Checkout.register()
+SignIn.register()
 
 // for the checkout page, we introduce direct handling so that
 // we control how to show the page

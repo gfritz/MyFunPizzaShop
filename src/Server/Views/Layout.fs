@@ -50,6 +50,12 @@ let view (ctx:HttpContext) (env:#_) (isDev) (body: int -> Task<string>) = task {
     // there is no h1 so far
     let! body = body 0
 
+    let signin =
+        if ctx.User.Identity.IsAuthenticated then
+            html $"""<fps-signin username={ctx.User.Identity.Name} />"""
+        else
+            html $"""<fps-signin />"""
+
     // extension 'alfonsogarciacaro.vscode-template-fsharp-highlight' lets f# interpolated string be colored like the actual code is here.
     // ?v=###### is for cache busting; you update this in the file manually, it's not so bad
     // <script> used to be the last thing. now, we can us `defer`. all should have EITHER `defer` or `async` unless you have a STRONG REASON, and you should loudly document that.
@@ -101,6 +107,7 @@ let view (ctx:HttpContext) (env:#_) (isDev) (body: int -> Task<string>) = task {
 
         <body>
             <header>
+                {signin}
             </header>
             <main>
                 {body}

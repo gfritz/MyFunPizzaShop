@@ -3,6 +3,9 @@
 open System.Reflection
 open TickSpec
 
+// TODO tests
+// - when place order and not signed in, sign in dialog appears
+
 [<EntryPointAttribute>]
 let main _ =
     try

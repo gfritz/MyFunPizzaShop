@@ -161,6 +161,9 @@ let view (host:LitElement) (model:Model) dispatch =
             </div>
         """
 
+// someone has to put this `fps-signin` tag into a page! That is Index.fs or Layout.fs
+// ideally, if signin is available anywhere or this is a single page application, then
+// only one module or function will do that.
 [<LitElement("fps-signin")>]
 let LitElement () =
     Hook.useHmr (hmr)

@@ -17,6 +17,9 @@ open Akka.Logger.Serilog
 open Akka.Event
 open FunPizzaShop.ServerInterfaces.Command
 
+// we don't want to have 10 versions of a thing
+// but we should still version them.
+// if it is backwards compatible, then maybe we don't version.
 type Command =
     | Login
     | VerifyLogin of VerificationCode option
@@ -73,6 +76,7 @@ let actorProp (env:_ ) toEvent (mediator: IActorRef<Publish>) (mailbox: Eventsou
 
             match msg with
             // these are actor level events that we aren't interested in
+            // and we match them to avoid doing a wildcard pattern match
             | PersistentLifecycleEvent _
             | :? Persistence.SaveSnapshotSuccess
             | LifecycleEvent _ -> return! state |> set
